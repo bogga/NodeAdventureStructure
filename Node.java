@@ -25,17 +25,22 @@ public class Node
 
   public void display()
   {
+    System.out.println("==== ==== ====");
     System.out.println(mainText);
 
     for (int i = 0; i < options.size(); i++)
-        System.out.println(i + ": " + options.get(i).displayText);
+        System.out.println((i + 1) + ": " + options.get(i).displayText);
+
+    System.out.println("==== ==== ====");
   }
 
-  public int choose()
+  public Node choose()
   {
     display();
 
     Scanner scanner = new Scanner(System.in);
-    return scanner.nextInt();
+    int choice = scanner.nextInt() - 1;
+
+    return options.get(choice);
   }
 }
