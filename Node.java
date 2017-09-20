@@ -18,6 +18,12 @@ public class Node
     options.add(option);
   }
 
+  public void addOption(Node option, String displayText)
+  {
+    option.displayText = displayText;
+    options.add(option);
+  }
+
   public void addOption(ArrayList<Node> option)
   {
     options.addAll(option);
@@ -28,8 +34,11 @@ public class Node
     System.out.println("==== ==== ====");
     System.out.println(mainText);
 
-    for (int i = 0; i < options.size(); i++)
+    if (options.size() > 0)
+      for (int i = 0; i < options.size(); i++)
         System.out.println((i + 1) + ": " + options.get(i).displayText);
+    else
+      System.out.println("There aren't any options here!");
 
     System.out.println("==== ==== ====");
   }
@@ -42,5 +51,13 @@ public class Node
     int choice = scanner.nextInt() - 1;
 
     return options.get(choice);
+  }
+
+  public Node clone()
+  {
+    Node node = new Node(displayText, mainText);
+    node.addOption(options);
+
+    return node;
   }
 }
