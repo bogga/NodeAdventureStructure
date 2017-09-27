@@ -6,13 +6,16 @@ import java.util.Random;
 
 public class Character implements Stats{
 
-
+public final String name;
+	
 	ArrayList<Item> items;
 
 	/**
 	 * Creates a new character with randomized stats
+	 * @param name of the hero
 	 */
-	public Character(){
+	public Character(String name){
+		this.name = name;
 		
 		Random rand = new Random();
 		for (int i = 0; i < basicStats.length; i++){
@@ -30,6 +33,10 @@ public class Character implements Stats{
 	public String getStats(){
 		return "HP " + basicStats[Stats.HP] + " ATK " + basicStats[Stats.ATK] + " DEF " + basicStats[Stats.DEF] + " REFLEX "
 				+ basicStats[Stats.REF];
+	}
+	
+	public int getStat(int stat) {
+		return basicStats[stat];
 	}
 
 	/**

@@ -1,9 +1,8 @@
 package game;
 
-public abstract class Item implements Stats{
+public class Item implements Stats{
 
 	public final String name;
-	//private int[] stats;
 
 	/**
 	 * Creates an item with the specified characteristics
@@ -17,7 +16,6 @@ public abstract class Item implements Stats{
 	 */
 	public Item(String name,int hp,  int atk, int def, int reflex){
 		this.name = name;
-		//stats = new int[4];
 		
 		basicStats[HP] = hp;
 		basicStats[ATK] = atk;
